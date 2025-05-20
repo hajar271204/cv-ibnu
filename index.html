@@ -29,14 +29,7 @@
       padding: 40px;
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       animation: fadeIn 1s ease-in-out;
-      perspective: 1000px;
-    }
-
-    .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
     }
 
     @keyframes fadeIn {
@@ -47,14 +40,12 @@
     .photo {
       text-align: center;
       margin-bottom: 20px;
-      transform-style: preserve-3d;
-      animation: float3d 6s ease-in-out infinite;
+      animation: float 6s ease-in-out infinite;
     }
 
-    @keyframes float3d {
-      0%   { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
-      50%  { transform: rotateX(15deg) rotateY(15deg) translateZ(30px); }
-      100% { transform: rotateX(0deg) rotateY(0deg) translateZ(0); }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .photo img {
@@ -88,6 +79,12 @@
       border-bottom: 2px solid #ffc107;
       display: inline-block;
       padding-bottom: 3px;
+      animation: moveUpDown 3s ease-in-out infinite;
+    }
+
+    @keyframes moveUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .section p, .section ul {
@@ -110,23 +107,10 @@
       text-decoration: underline;
     }
 
-    .word {
-      display: inline-block;
-      transform-style: preserve-3d;
-      animation: spin3d 3.5s ease-in-out infinite;
-      perspective: 400px;
-    }
-
-    @keyframes spin3d {
-      0%   { transform: rotateY(0deg) translateZ(0); }
-      25%  { transform: rotateY(180deg) translateZ(20px); }
-      50%  { transform: rotateY(360deg) translateZ(0); }
-      75%  { transform: rotateY(540deg) translateZ(20px); }
-      100% { transform: rotateY(720deg) translateZ(0); }
-    }
-
     @media (max-width: 600px) {
-      .container { padding: 25px; }
+      .container {
+        padding: 25px;
+      }
     }
   </style>
 </head>
@@ -135,53 +119,41 @@
     <div class="photo">
       <img src="foto.jpg" alt="Ibnu Hajar">
     </div>
-    <h1 class="animated-text">Ibnu Hajar</h1>
-    <p class="center animated-text">Bogor, Jawa Barat | <a href="mailto:ihajar902@gmail.com">ihajar902@gmail.com</a> | <a href="http://wa.me/62895600436095" target="_blank">WhatsApp</a></p>
+    <h1>Ibnu Hajar</h1>
+    <p class="center">Bogor, Jawa Barat | <a href="mailto:ihajar902@gmail.com">ihajar902@gmail.com</a> | <a href="http://wa.me/62895600436095" target="_blank">WhatsApp</a></p>
 
-    <div class="section animated-text">
-      <h2>👤Profil Singkat</h2>
+    <div class="section">
+      <h2>👤 Profil Singkat</h2>
       <p>Saya adalah mahasiswa aktif di Universitas Tazkia Bogor dengan program studi Akuntansi Syari'ah. Saya percaya bahwa keindahan dapat ditemukan dalam setiap karya. <em>"Pencarian keindahan dalam setiap karya."</em></p>
     </div>
 
-    <div class="section animated-text">
-      <h2>🎓Pendidikan</h2>
-      <p><strong>🏛Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
+    <div class="section">
+      <h2>🎓 Pendidikan</h2>
+      <p><strong>🏛 Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
     </div>
 
-    <div class="section animated-text">
-      <h2>💼Pengalaman</h2>
+    <div class="section">
+      <h2>💼 Pengalaman</h2>
       <ul>
-        <li>💻PKL di CV. SKY PRINTING SEKAYU</li>
-        <li>📱Membuat Website Portfolio Pribadi</li>
+        <li>💻 PKL di CV. SKY PRINTING SEKAYU</li>
+        <li>📱 Membuat Website Portfolio Pribadi</li>
       </ul>
     </div>
 
-    <div class="section animated-text">
-      <h2>🛠Kemampuan</h2>
+    <div class="section">
+      <h2>🛠 Kemampuan</h2>
       <ul>
-        <li>🛒Marketing</li>
-        <li>🎨Editing Video & Desain</li>
-        <li>🗣Public Speaking</li>
+        <li>🛒 Marketing</li>
+        <li>🎨 Editing Video & Desain</li>
+        <li>🗣 Public Speaking</li>
       </ul>
     </div>
 
-    <div class="section animated-text">
-      <h2>🔗Media Sosial</h2>
-      <p>📷Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
-      <p>📲WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
+    <div class="section">
+      <h2>🔗 Media Sosial</h2>
+      <p>📷 Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
+      <p>📲 WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
     </div>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.animated-text').forEach(el => {
-        const words = el.innerHTML.split(/(\s+)/).map(word => {
-          if (word.trim().length === 0) return word;
-          return <span class="word" style="animation-delay:${Math.random() * 2}s">${word}</span>;
-        });
-        el.innerHTML = words.join('');
-      });
-    });
-  </script>
 </body>
 </html>
