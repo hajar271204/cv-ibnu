@@ -24,16 +24,44 @@
     .container {
       max-width: 900px;
       margin: auto;
-      background: #fff;
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
       padding: 40px;
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .container:hover {
       transform: translateY(-5px);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .photo {
@@ -58,11 +86,12 @@
     p.center {
       text-align: center;
       font-size: 0.95em;
-      color: #666;
+      color: #444;
     }
 
     .section {
       margin-top: 35px;
+      animation: fadeInUp 1s ease forwards;
     }
 
     .section h2 {
@@ -102,7 +131,7 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container fade-in">
     <div class="photo">
       <img src="foto.jpg" alt="Ibnu Hajar">
     </div>
@@ -143,4 +172,4 @@
     </div>
   </div>
 </body>
-</html>
+</html> 
