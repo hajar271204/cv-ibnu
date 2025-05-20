@@ -14,52 +14,58 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #a18cd1, #fbc2eb);
-      color: #3a0c58;
+      background: linear-gradient(to bottom right, #ff6f00, #ffe0b2);
+      color: #2c2c2c;
       line-height: 1.6;
       min-height: 100vh;
       padding: 40px 15px;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      background: #fff;
+      background: linear-gradient(135deg, #fff7ec, #ffd89b);
       padding: 40px;
       border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(155, 89, 182, 0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      border: 2px solid #d1b3ff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      animation: fadeIn 1s ease-in-out;
     }
 
-    .container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px rgba(155, 89, 182, 0.4);
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     .photo {
       text-align: center;
       margin-bottom: 20px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
     }
 
     .photo img {
       width: 150px;
       border-radius: 50%;
-      border: 5px solid #b388ff;
-      box-shadow: 0 4px 12px rgba(155, 89, 182, 0.4);
+      border: 5px solid #ff9800;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
     h1 {
       text-align: center;
       font-size: 2.4em;
-      color: #7b1fa2;
+      color: #e65100;
       margin-bottom: 5px;
     }
 
     p.center {
       text-align: center;
       font-size: 0.95em;
-      color: #5e3370;
+      color: #444;
     }
 
     .section {
@@ -67,18 +73,23 @@
     }
 
     .section h2 {
-      color: #9c27b0;
+      color: #ff6f00;
       font-size: 1.4em;
       margin-bottom: 10px;
-      border-bottom: 2px solid #ce93d8;
+      border-bottom: 2px solid #ffc107;
       display: inline-block;
       padding-bottom: 3px;
+      animation: moveUpDown 3s ease-in-out infinite;
+    }
+
+    @keyframes moveUpDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
     }
 
     .section p, .section ul {
       margin-left: 10px;
       font-size: 1em;
-      color: #4a148c;
     }
 
     ul {
@@ -87,7 +98,7 @@
     }
 
     a {
-      color: #8e24aa;
+      color: #ff6f00;
       text-decoration: none;
       font-weight: 500;
     }
@@ -112,36 +123,36 @@
     <p class="center">Bogor, Jawa Barat | <a href="mailto:ihajar902@gmail.com">ihajar902@gmail.com</a> | <a href="http://wa.me/62895600436095" target="_blank">WhatsApp</a></p>
 
     <div class="section">
-      <h2>👤Profil Singkat</h2>
+      <h2>👤 Profil Singkat</h2>
       <p>Saya adalah mahasiswa aktif di Universitas Tazkia Bogor dengan program studi Akuntansi Syari'ah. Saya percaya bahwa keindahan dapat ditemukan dalam setiap karya. <em>"Pencarian keindahan dalam setiap karya."</em></p>
     </div>
 
     <div class="section">
-      <h2>🎓Pendidikan</h2>
-      <p><strong>🏛️Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
+      <h2>🎓 Pendidikan</h2>
+      <p><strong>🏛 Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
     </div>
 
     <div class="section">
-      <h2>💼Pengalaman</h2>
+      <h2>💼 Pengalaman</h2>
       <ul>
-        <li>💻PKL di CV. SKY PRINTING SEKAYU</li>
-        <li>📱Membuat Website Portfolio Pribadi</li>
+        <li>💻 PKL di CV. SKY PRINTING SEKAYU</li>
+        <li>📱 Membuat Website Portfolio Pribadi</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>🛠️Kemampuan</h2>
+      <h2>🛠 Kemampuan</h2>
       <ul>
-        <li>🛒Marketing</li>
-        <li>🎨Editing Video & Desain</li>
-        <li>🗣️Public Speaking</li>
+        <li>🛒 Marketing</li>
+        <li>🎨 Editing Video & Desain</li>
+        <li>🗣 Public Speaking</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>🔗Media Sosial</h2>
-      <p>📷Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
-      <p>📲WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
+      <h2>🔗 Media Sosial</h2>
+      <p>📷 Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
+      <p>📲 WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
     </div>
   </div>
 </body>
