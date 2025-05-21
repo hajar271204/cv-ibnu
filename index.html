@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CV Ibnu Hajar</title>
+  <title>CV Ibnu Hajar – 3D Interactive</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     * {
@@ -13,78 +13,97 @@
     }
 
     body {
+      background: linear-gradient(135deg, #ff6f00, #ffb74d, #ffe0b2);
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom right, #ff6f00, #ffe0b2);
       color: #2c2c2c;
       line-height: 1.6;
       min-height: 100vh;
       padding: 40px 15px;
-      overflow-x: hidden;
+      perspective: 1000px;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      background: linear-gradient(135deg, #fff7ec, #ffd89b);
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
       padding: 40px;
       border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      animation: fadeIn 1s ease-in-out;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .container:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .container * {
+      transform-style: preserve-3d;
+      transition: transform 0.35s cubic-bezier(.3,1.6,.4,.9), text-shadow 0.35s;
+    }
+
+    .container *:hover {
+      transform: translateZ(18px) scale(1.03);
+      text-shadow: 0 6px 12px rgba(0,0,0,0.25);
     }
 
     .photo {
       text-align: center;
-      margin-bottom: 20px;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
+      margin-bottom: 25px;
     }
 
     .photo img {
       width: 150px;
       border-radius: 50%;
       border: 5px solid #ff9800;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
       text-align: center;
-      font-size: 2.4em;
+      font-size: 2.6em;
       color: #e65100;
-      margin-bottom: 5px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    h1 span {
+      display: inline-block;
+      animation: floatLetters 3s ease-in-out infinite;
+    }
+
+    .section h2 {
+      color: #ff6f00;
+      font-size: 1.5em;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #ffc107;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+
+    .section h2 span {
+      display: inline-block;
+      animation: floatLetters 3s ease-in-out infinite;
+    }
+
+    @keyframes floatLetters {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0px); }
     }
 
     p.center {
       text-align: center;
       font-size: 0.95em;
-      color: #444;
+      color: #555;
+      margin-bottom: 10px;
     }
 
     .section {
-      margin-top: 35px;
-    }
-
-    .section h2 {
-      color: #ff6f00;
-      font-size: 1.4em;
-      margin-bottom: 10px;
-      border-bottom: 2px solid #ffc107;
-      display: inline-block;
-      padding-bottom: 3px;
-      animation: moveUpDown 3s ease-in-out infinite;
-    }
-
-    @keyframes moveUpDown {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
+      margin-top: 40px;
     }
 
     .section p, .section ul {
@@ -109,7 +128,13 @@
 
     @media (max-width: 600px) {
       .container {
-        padding: 25px;
+        padding: 28px;
+      }
+      h1 {
+        font-size: 2em;
+      }
+      .section h2 {
+        font-size: 1.3em;
       }
     }
   </style>
@@ -119,40 +144,53 @@
     <div class="photo">
       <img src="foto.jpg" alt="Ibnu Hajar">
     </div>
-    <h1>Ibnu Hajar</h1>
+    <h1>
+      <!-- Animasi huruf individual -->
+      <span>I</span><span>b</span><span>n</span><span>u</span> <span>H</span><span>a</span><span>j</span><span>a</span><span>r</span>
+    </h1>
     <p class="center">Bogor, Jawa Barat | <a href="mailto:ihajar902@gmail.com">ihajar902@gmail.com</a> | <a href="http://wa.me/62895600436095" target="_blank">WhatsApp</a></p>
 
     <div class="section">
-      <h2>👤 Profil Singkat</h2>
+      <h2>
+        <span>👤</span><span>P</span><span>r</span><span>o</span><span>f</span><span>i</span><span>l</span> <span>S</span><span>i</span><span>n</span><span>g</span><span>k</span><span>a</span><span>t</span>
+      </h2>
       <p>Saya adalah mahasiswa aktif di Universitas Tazkia Bogor dengan program studi Akuntansi Syari'ah. Saya percaya bahwa keindahan dapat ditemukan dalam setiap karya. <em>"Pencarian keindahan dalam setiap karya."</em></p>
     </div>
 
     <div class="section">
-      <h2>🎓 Pendidikan</h2>
-      <p><strong>🏛 Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
+      <h2>
+        <span>🎓</span><span>P</span><span>e</span><span>n</span><span>d</span><span>i</span><span>d</span><span>i</span><span>k</span><span>a</span><span>n</span>
+      </h2>
+      <p><strong>🏛Universitas Tazkia</strong> – Akuntansi Syari'ah</p>
     </div>
 
     <div class="section">
-      <h2>💼 Pengalaman</h2>
+      <h2>
+        <span>💼</span><span>P</span><span>e</span><span>n</span><span>g</span><span>a</span><span>l</span><span>a</span><span>m</span><span>a</span><span>n</span>
+      </h2>
       <ul>
-        <li>💻 PKL di CV. SKY PRINTING SEKAYU</li>
-        <li>📱 Membuat Website Portfolio Pribadi</li>
+        <li>💻PKL di CV. SKY PRINTING SEKAYU</li>
+        <li>📱Membuat Website Portfolio Pribadi</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>🛠 Kemampuan</h2>
+      <h2>
+        <span>🛠</span><span>K</span><span>e</span><span>m</span><span>a</span><span>m</span><span>p</span><span>u</span><span>a</span><span>n</span>
+      </h2>
       <ul>
-        <li>🛒 Marketing</li>
-        <li>🎨 Editing Video & Desain</li>
-        <li>🗣 Public Speaking</li>
+        <li>🛒Marketing</li>
+        <li>🎨Editing Video & Desain</li>
+        <li>🗣Public Speaking</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>🔗 Media Sosial</h2>
-      <p>📷 Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
-      <p>📲 WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
+      <h2>
+        <span>🔗</span><span>M</span><span>e</span><span>d</span><span>i</span><span>a</span> <span>S</span><span>o</span><span>s</span><span>i</span><span>a</span><span>l</span>
+      </h2>
+      <p>📷Instagram: <a href="https://www.instagram.com/ibnn.hjr/" target="_blank">@ibnn.hjr</a></p>
+      <p>📲WhatsApp: <a href="http://wa.me/62895600436095" target="_blank">Klik untuk menghubungi</a></p>
     </div>
   </div>
 </body>
